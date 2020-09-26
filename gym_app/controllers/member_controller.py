@@ -13,7 +13,7 @@ def members():
 @members_blueprint.route("/members/<id>")
 def show(id):
     member = member_repository.select(id)
-    return render_template("/members/show.html", member = member)
+    return render_template("/members/show.html", member=member)
 
 @members_blueprint.route("/members/new")
 def new_member():
@@ -27,7 +27,23 @@ def add_member():
     status = request.form["status"]
     new_member = Member(name, age, membership, status)
     member_repository.save(new_member)
-    return render_template("/members/index.html", members=members)
+    return redirect ("/members")
+
+@members_blueprint.route("/members/<id>/edit")
+def edit_member(id):
+    member = member_repository.select(id)   
+    return render_template("/members/edit.html", member=member)
+
+@members_blueprint.route("/members/<id>", methods=["POST"])
+def update_member(id):
+    name = request.form["name"]
+    age = request.form["age"]
+    membership = request.form["membership"]
+    status = request.form["status"]
+    member = Member(name, age, membership, status, id)
+    member_repository.update(member)
+    return redirect("/members")
+
 
 @members_blueprint.route("/members/<id>/delete", methods=["POST"])
 def delete(id):

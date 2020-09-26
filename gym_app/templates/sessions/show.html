@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section>
+<form action="/sessions/{{ session.id }}/edit" method = "GET">
+<input type="submit" value="Edit">
+</form>
+
+<form action="/sessions/{{ session.id }}/delete" method="POST">
+<input type="submit" value="Delete">
+</form>
+</section>
+
+
+{{ session.name }}
+{{ session.date }}
+{{ session.time }}
+{{ session.duration }}
+{{ session.capacity }}
+{{ session.id }}
+
+
+{% endblock %}

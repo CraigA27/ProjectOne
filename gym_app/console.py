@@ -13,4 +13,7 @@ member_repository.save(member_1)
 member_2 = Member("Bob", 32, "Silver", False)
 member_repository.save(member_2)
 
+session_1 = Session("HIIT Circuit", "2020/10/10", "18:30" , 30, 5)
+session_repository.save(session_1)
+
 pdb.set_trace()

@@ -6,7 +6,7 @@ def save(member):
     sql = "INSERT INTO members ( name, age, membership, status ) VALUES (%s, %s, %s, %s) RETURNING id"
     values = [member.name, member.age, member.membership, member.status]
     results = run_sql(sql, values)
-    member.id = results[0]['id']
+    member.id = results[0]["id"]
     return member
 
 def select_all():
@@ -29,7 +29,12 @@ def select(id):
         member = Member(result["name"], result["age"], result["membership"], result["status"], result["id"])
     return member
 
+def update(member):
+    sql = "UPDATE members SET ( name, age, membership, status ) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [member.name, member.age, member.membership, member.status, member.id]
+    run_sql(sql, values)
+     
 def delete(id):
     sql = "DELETE FROM members WHERE id = %s"
     values = [id]
-    run_sql(sql, values)[0]
+    run_sql(sql, values)

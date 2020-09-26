@@ -7,7 +7,7 @@ id SERIAL PRIMARY KEY,
 name VARCHAR(255),
 age INT,
 membership VARCHAR(255),
-active BOOLEAN
+status BOOLEAN
 );
 
 CREATE TABLE sessions(

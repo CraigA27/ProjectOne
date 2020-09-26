@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<nav><a href="/members/new">Add a New Member</a></nav>
+
+{% for member in members %}
+
+<a href="/members/{{ member.id }}"> {{ member.name }} </a>
+{{ member.age }}
+{{ member.membership }}
+{{ member.active }}
+{{ member.id }}
+{% endfor %}
+
+
+{% endblock %}

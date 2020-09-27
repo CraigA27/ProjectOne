@@ -8,14 +8,14 @@
         <label for="age">Age:</label>
         <input type="number" id="age" name="age" value="{{ member.age }}">
         <label for="membership">Membership Level:</label>
-        <select name="membership" id="membership" {% if member.membership %} selected="selected" {% endif %}>
-            <option value="gold">Gold</option>
-            <option value="silver">Silver</option>
-            <option value="bronze">Bronze</option></select>
+        <select name="membership" id="membership">
+            <option value="gold" {% if member.membership %} selected="selected" {% endif %}>Gold</option>
+            <option value="silver" {% if member.membership %} selected="selected" {% endif %}>Silver</option>
+            <option value="bronze" {% if member.membership %} selected="selected" {% endif %}>Bronze</option></select>
         <label for="status">Status:</label>
-        <select name="status" id="status" {% if member.status %} selected="selected" {% endif %}>
-        <option value="true">Active</option>
-        <option value="false">Inactive</option></select>
+        <select name="status" id="status">
+        <option value="true" {% if member.status %} selected="selected" {% endif %}>Active</option>
+        <option value="false" {% if not member.status %} selected="selected" {% endif %}>Inactive</option></select>
         <input type="submit">
     </div>
 </form>

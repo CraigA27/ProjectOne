@@ -29,5 +29,15 @@ def select(id):
         session = Session(result["name"], result["date"], result["time"], result["duration"], result["capacity"], result["id"])
     return session
 
+def update(session):
+    sql = "UPDATE sessions SET ( name, date, time, duration, capacity ) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    values = [session.name, session.date, session.time, session.duration, session.capacity, session.id]
+    run_sql(sql, values)
+
+def delete(id):
+    sql = "DELETE FROM sessions WHERE id =%s"
+    values = [id]
+    run_sql(sql, values)
+
 
 

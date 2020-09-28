@@ -39,5 +39,17 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
+def members(session):
+    members = []
+
+    sql = "SELECT members.* FROM members INNER JOIN bookings ON bookings.member_id = WHERE session_id = %s"
+    values = [session.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        member = Member(row["name"], row["age"], row["membership"], row["status"], row["id"])
+        members.append(member)
+    return members 
+
 
 

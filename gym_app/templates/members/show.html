@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
 <section>
 <form action="/members/{{ member.id }}/edit" method = "GET">
 <input type="submit" value="Edit">
@@ -12,12 +13,31 @@
 </form>
 </section>
 
+<section>
+    <h3>Member profile:</h3>
+    Name: {{ member.name }}
+    Age: {{ member.age }}
+    Membership Type: {{ member.membership }}
+    {% if member.status == True %}
+    Membership Status: active
+    {% else %}
+    Membership Status: inactive
+    {% endif %}
+</section>
 
-{{ member.name }}
-{{ member.age }}
-{{ member.membership }}
-{{ member.active }}
-{{ member.id }}
+<section>
+<h3>Attending Sessions:</h3>
+{% for session in sessions %}
+
+Name: {{ session.name }}
+Date: {{ session.date }}
+Time: {{ session.time }}
+Duration: {{ session.duration }}
+Capacity: {{ session.capacity }}
+
+{% endfor %}
+
+</section>
 
 
 {% endblock %}

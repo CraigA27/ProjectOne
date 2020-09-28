@@ -25,4 +25,7 @@ booking_repository.save(booking_1)
 booking_2 = Booking(member_2, session_1)
 booking_repository.save(booking_2)
 
+booking_3 = Booking(member_1, session_2)
+booking_repository.save(booking_3)
+
 pdb.set_trace()

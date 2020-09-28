@@ -11,3 +11,20 @@ def save(booking):
     results = run_sql(sql, values)
     id = results[0]["id"]
     booking.id = id
+
+def select_all():
+    bookings=[]
+    
+    sql = "SELECT * FROM bookings"
+    results = run_sql(sql)
+    
+    for row in results:
+        member = member_repository.select(row["member_id"])
+        session = session_repository.select(row["session_id"])
+        booking = Booking(member, session, row["id"])
+        bookings.append(booking)
+    return booking
+
+def delete_all():
+    sql = "DELETE FROM bookings"
+    run_sql(sql)

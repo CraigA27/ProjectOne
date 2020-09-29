@@ -23,8 +23,22 @@ def select_all():
         session = session_repository.select(row["session_id"])
         booking = Booking(member, session, row["id"])
         bookings.append(booking)
+    return bookings
+
+def select(id):
+    sql = "SELECT * FROM bookings WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    member = member_repository.select(result["member_id"])
+    session = session_repository.select(result["session_id"])
+    booking = Booking(member, session, result["id"])
     return booking
 
 def delete_all():
     sql = "DELETE FROM bookings"
     run_sql(sql)
+
+def delete(id):
+    sql = "DELETE FROM bookings WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)

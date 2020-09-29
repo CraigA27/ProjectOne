@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<nav><a href="/bookings/new">Create a new Booking</a></nav>
+
+{% for booking in bookings %}
+
+<p>{{ booking.session.name }} {{booking.session.date }} {{booking.session.time }} {{ booking.member.name }}</p>
+
+
+{% endfor %}
+
+{% endblock %}

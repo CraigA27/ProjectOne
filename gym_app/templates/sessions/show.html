@@ -12,13 +12,23 @@
 </form>
 </section>
 
+<section>
+    <h3>Session Info:</h3>
+    {{ session.name }}
+    {{ session.date }}
+    {{ session.time }}
+    {{ session.duration }}
+    {{ session.capacity }}
+    {{ session.id }}
+</section>
 
-{{ session.name }}
-{{ session.date }}
-{{ session.time }}
-{{ session.duration }}
-{{ session.capacity }}
-{{ session.id }}
+<section><h3>Attendees:</h3>
+{% for member in members %}
+ {{ member.name }}
+
+ {% endfor %}
+
+</section>
 
 
 {% endblock %}

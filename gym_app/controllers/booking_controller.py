@@ -19,7 +19,7 @@ def show(id):
 
 @bookings_blueprint.route("/bookings/new")
 def new_booking():
-    sessions = session_repository.select_all()
+    sessions = session_repository.select_all_by_date()
     members = member_repository.select_all()
     return render_template("/bookings/new.html", sessions=sessions, members=members)
 

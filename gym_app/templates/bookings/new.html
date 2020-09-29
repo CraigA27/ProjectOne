@@ -6,19 +6,18 @@
     <label for="session">Session:</label>
     <select name="session_id" id="session">
         {% for session in sessions %}
-        <option value="{{ session.id }}">{{ session.name }}</option>
+        <option value="{{ session.id }}">{{ session.name }} || {{ session.date }} || {{ session.time }}</option>
         {% endfor %}
     </select>
     <label for="member">Member:</label>
     <select id="member" name="member_id">
         {% for member in members %}
         {% if member.status == False %}
-        <option value="{{ member.id }}" disabled>{{ member.name }}</option>
+        <option value="{{ member.id }}" hidden>{{ member.name }}</option>
         {% else %}
         <option value="{{ member.id}}"> {{ member.name }}</option>
         {% endif %}
         {% endfor %}
-
     </select>
     <input type="submit">
     </div>

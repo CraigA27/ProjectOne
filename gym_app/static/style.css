@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+font-family: sans-serif;
+color: black;
+list-style: none;
+}
+
+body > header {
+background-color: rgb(56, 16, 102);
+color: silver;
+text-align: left;
+}
+
+body > header > nav > ul{
+    color: silver;
+    display: flex;
+   list-style: none;
+}
+body > header > nav > ul > li > a {
+    padding-right: 8px;
+    color: silver;
+}

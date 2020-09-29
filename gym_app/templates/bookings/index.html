@@ -1,14 +1,42 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<h2>Bookings</h2>
 <nav><a href="/bookings/new">Create a new Booking</a></nav>
 
-{% for booking in bookings %}
-
-<p>{{ booking.session.name }} {{booking.session.date }} {{booking.session.time }} {{ booking.member.name }}</p>
-
-
+<h3>Recent Bookings:</h3>
+<table>
+    <tr>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+        <th>Date</th>
+        <th></th>
+        <th></th>
+        <th>Time</th>
+        <th></th>
+        <th></th>
+        <th>Member Name</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for booking in bookings %}
+    <tr>
+        <td>{{ booking.session.name }} </td>
+        <td></td>
+        <td></td>
+        <td>{{ booking.session.date }}</td>
+        <td></td>
+        <td></td>
+        <td>{{ booking.session.time }}</td>
+        <td></td>
+        <td></td>
+        <td>{{ booking.member.name }}</td>
+        <td></td>
+        <td></td>
+        <td><form action="/bookings/{{ booking.id }}/delete" method="POST">
+            <input type="submit" value="Cancel"></td>
+    </tr>
 {% endfor %}
-
+</table>
 {% endblock %}

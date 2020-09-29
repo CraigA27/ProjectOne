@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
+<h2>Edit Member Details</h2>
 <form action="/members/{{ member.id }}" method="POST">
     <div>
         <label for="name">Name:</label>
@@ -9,9 +9,9 @@
         <input type="number" id="age" name="age" value="{{ member.age }}">
         <label for="membership">Membership Level:</label>
         <select name="membership" id="membership">
-            <option value="gold" {% if member.membership %} selected="selected" {% endif %}>Gold</option>
-            <option value="silver" {% if member.membership %} selected="selected" {% endif %}>Silver</option>
-            <option value="bronze" {% if member.membership %} selected="selected" {% endif %}>Bronze</option></select>
+            <option value="Premium" {% if member.membership %} selected="selected" {% endif %}>Premium</option>
+            <option value="Standard" {% if not member.membership %} selected="selected" {% endif %}>Standard</option>
+        </select>
         <label for="status">Status:</label>
         <select name="status" id="status">
         <option value="true" {% if member.status %} selected="selected" {% endif %}>Active</option>
@@ -19,5 +19,4 @@
         <input type="submit">
     </div>
 </form>
-
 {% endblock %}

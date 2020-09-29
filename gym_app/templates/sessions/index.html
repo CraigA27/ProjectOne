@@ -1,21 +1,41 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<h2>Sessions</h2>
 <nav><a href="/sessions/new">Create a new Session</a></nav>
 
-{% for session in sessions %}
-
-<a href="/sessions/{{ session.id }}"> {{ session.name }} </a>
-Date:{{ session.date }}
-Time:{{ session.time }}
-Duration:{{ session.duration }}
-Capacity:{{ session.capacity }}
-
-
+<table>
+    <tr>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+        <th>Date</th>
+        <th></th>
+        <th></th>
+        <th>Time</th>
+        <th></th>
+        <th></th>
+        <th>Duration</th>
+        <th></th>
+        <th></th>
+        <th>Capacity</th>
+    </tr>
+    {% for session in sessions %}
+    <tr>
+        <td><a href="/sessions/{{ session.id }}"> {{ session.name }} </a></td>
+        <td></td>
+        <td></td>
+        <td>{{ session.date }}</td>
+        <td></td>
+        <td></td>
+        <td>{{ session.time }}</td>
+        <td></td>
+        <td></td>
+        <td>{{ session.duration }}</td>
+        <td></td>
+        <td></td>
+        <td>{{ session.capacity }}</td>
+    </tr>
 {% endfor %}
-
-
-
-
+</table>
 {% endblock %}

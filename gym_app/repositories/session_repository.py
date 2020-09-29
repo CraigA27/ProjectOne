@@ -19,6 +19,16 @@ def select_all():
         sessions.append(session)
     return sessions
 
+def select_all_by_date():
+    sessions = []
+    
+    sql = "SELECT * FROM sessions ORDER BY date, time ASC"
+    results = run_sql(sql)
+    for row in results:
+        session = Session(row["name"], row["date"], row["time"], row["duration"], row["capacity"], row["id"])
+        sessions.append(session)
+    return sessions
+
 def select(id):
     session = None
     sql = "SELECT * FROM sessions WHERE id = %s"
@@ -42,7 +52,7 @@ def delete(id):
 def members(session):
     members = []
 
-    sql = "SELECT members.* FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE session_id = %s"
+    sql = "SELECT members.* FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE session_id = %s ORDER BY name"
     values = [session.id]
     results = run_sql(sql, values)
 

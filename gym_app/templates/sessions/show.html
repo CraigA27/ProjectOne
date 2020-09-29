@@ -14,21 +14,31 @@
 
 <section>
     <h3>Session Info:</h3>
-    {{ session.name }}
-    {{ session.date }}
-    {{ session.time }}
-    {{ session.duration }}
-    {{ session.capacity }}
-    {{ session.id }}
+    <ul>
+<li>Name:{{ session.name }}</li>
+<li>Date:{{ session.date }}</li>
+<li>Time:{{ session.time }}</li>
+<li>Duration:{{ session.duration }}</li>    
+<li>Capacity:{{ session.capacity }}</li>
+</ul>
 </section>
 
-<section><h3>Attendees:</h3>
-{% for member in members %}
- {{ member.name }}
-
- {% endfor %}
-
-</section>
-
-
-{% endblock %}
+<section>
+    <h3>Attendees:</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th></th>
+            <th></th>
+            <th>Membership Level</th>
+        </tr>
+        {% for member in members %}
+        <tr>
+            <td>{{ member.name }}</td>
+            <td></td>
+            <td></td>
+            <td>{{ member.membership }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    {% endblock %}

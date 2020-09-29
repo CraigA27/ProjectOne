@@ -13,7 +13,7 @@ status BOOLEAN
 CREATE TABLE sessions(
 id SERIAL PRIMARY KEY,
 name VARCHAR(255),
-date VARCHAR(255),
+date DATE,
 time VARCHAR(255),
 duration INT,
 capacity INT

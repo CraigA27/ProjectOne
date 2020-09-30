@@ -4,37 +4,38 @@
 <h2>Sessions</h2>
 <nav><a href="/sessions/new">Create a new Session</a></nav>
 
-<table>
+<table border="1" class="table">
     <tr>
         <th>Name</th>
-        <th></th>
-        <th></th>
+
         <th>Date</th>
-        <th></th>
-        <th></th>
+
         <th>Time</th>
-        <th></th>
-        <th></th>
+
         <th>Duration</th>
-        <th></th>
-        <th></th>
+
         <th>Capacity</th>
     </tr>
     {% for session in sessions %}
     <tr>
         <td><a href="/sessions/{{ session.id }}"> {{ session.name }} </a></td>
-        <td></td>
-        <td></td>
+
         <td>{{ session.date }}</td>
-        <td></td>
-        <td></td>
+
         <td>{{ session.time }}</td>
-        <td></td>
-        <td></td>
+
         <td>{{ session.duration }}</td>
-        <td></td>
-        <td></td>
+
         <td>{{ session.capacity }}</td>
+
+        <td><form action="/sessions/{{ session.id }}/edit" method = "GET">
+            <input type="submit" value="Edit">
+            </form></td>
+
+        <td></form>
+            <form action="/sessions/{{ session.id }}/delete" method="POST">
+            <input type="submit" value="Delete">
+            </form></td>
     </tr>
 {% endfor %}
 </table>

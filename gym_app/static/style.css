@@ -6,9 +6,16 @@ list-style: none;
 }
 
 body > header {
+display: flex;
+align-items: baseline;
+flex-direction: column;
 background-color: rgb(56, 16, 102);
 color: silver;
 text-align: left;
+}
+
+body > header > h1{
+    margin-left: 40px;
 }
 
 body > header > nav > ul{
@@ -20,3 +27,13 @@ body > header > nav > ul > li > a {
     padding-right: 8px;
     color: silver;
 }
+
+.table{
+border-collapse: collapse;
+text-align: left;
+}
+
+.container{
+    padding-left: 40px;
+}
+

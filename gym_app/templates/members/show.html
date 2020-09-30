@@ -2,26 +2,13 @@
 
 {% block content %}
 
-
-<section>
-    <p>
-<form action="/members/{{ member.id }}/edit" method = "GET">
-<input type="submit" value="Edit">
-</form>
-
-<form action="/members/{{ member.id }}/delete" method="POST">
-<input type="submit" value="Delete">
-</form>
-</p>
-</section>
-
 <section>
     <h3>Member Profile:</h3>
     <ul>
     <li>Name: {{ member.name }}</li>
     <li>Age: {{ member.age }}</li>
     <li>Membership Type: {{ member.membership }}</li>
-   <li>{% if member.status == True %}
+    <li>{% if member.status == True %}
     Membership Status: Active
     {% else %}
     Membership Status: Inactive
@@ -31,37 +18,25 @@
 
 <section>
 <h3>Attending Sessions:</h3>
-<table>
+<table border="1" class="table">
     <tr>
         <th>Name</th>
-        <th></th>
-        <th></th>
+
         <th>Date</th>
-        <th></th>
-        <th></th>
+
         <th>Time</th>
-        <th></th>
-        <th></th>
+
         <th>Duration</th>
-        <th></th>
-        <th></th>
-        <th>Capacity</th>
     </tr>
     {% for session in sessions %}
     <tr>
         <td>{{ session.name }}</td>
-        <td></td>
-        <td></td>
+
         <td>{{ session.date }}</td>
-        <td></td>
-        <td></td>
+
         <td>{{ session.time }}</td>
-        <td></td>
-        <td></td>
+
         <td>{{ session.duration }}</td>
-        <td></td>
-        <td></td>
-        <td>{{ session.capacity }}</td>
     </tr>
 {% endfor %}
 </table>

@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
+<h3>Select Session and Member</h3>
 
 <form action="/bookings" method="POST">
     <div>
     <label for="session">Session:</label>
     <select name="session_id" id="session">
         {% for session in sessions %}
-        <option value="{{ session.id }}">{{ session.name }} || {{ session.date }} || {{ session.time }}</option>
+        <option value="{{ session.id }}">{{ session.name }} // {{ session.date }} // {{ session.time }}</option>
         {% endfor %}
     </select>
     <label for="member">Member:</label>
@@ -22,8 +23,4 @@
     <input type="submit">
     </div>
 </form>
-
-
-
-
 {% endblock %}

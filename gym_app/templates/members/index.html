@@ -2,33 +2,36 @@
 
 {% block content %}
 <h2>Members</h2>
-<nav><a href="/members/new">Add a New Member</a></nav>
+<nav><a href="/members/new">Add a new Member</a></nav>
 
-<table>
+<table border="1" class="table">
     <tr>
         <th>Name</th>
-        <th></th>
-        <th></th>
+
         <th>Age</th>
-        <th></th>
-        <th></th>
+
         <th>Membership Level</th>
-        <th></th>
-        <th></th>
+
         <th>Membership Status</th>
     </tr>
     {% for member in members %}
     <tr>
         <td><a href="/members/{{ member.id }}"> {{ member.name }} </a></td>
-        <td></td>
-        <td></td>
+
         <td>{{ member.age }}</td>
-        <td></td>
-        <td></td>
+
         <td>{{ member.membership }}</td>
-        <td></td>
-        <td></td>
-        <td></td>{{ member.status }} {% if member.status == True %} Active {% else %} Inactive {% endif %}
+
+        <td>{% if member.status == True %} Active {% else %} Inactive {% endif %}</td>
+
+        <td><form action="/members/{{ member.id }}/edit" method = "GET">
+            <input type="submit" value="Edit">
+            </form></td>
+
+        <td></form>
+            <form action="/members/{{ member.id }}/delete" method="POST">
+            <input type="submit" value="Delete">
+            </form></td>
     </tr>
 {% endfor %}
 </table>

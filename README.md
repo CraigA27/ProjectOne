@@ -1,4 +1,4 @@
-# <h2>PythonProject
+# <h2>ProjectOne
 Gym management app developed using Python, PostgreSQL, HTML/CSS and Flask
 
 # <h3>Brief
